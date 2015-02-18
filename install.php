@@ -19,7 +19,7 @@ fclose($config);
 echo "Setup is almost done!<br><br>";
 
 $create_hook_url = substr($remote_repo, 0, strlen($remote_repo) - 4);
-$create_hook_url .+ "/settings/hooks/new";
+$create_hook_url .= "/settings/hooks/new";
 echo "The only thing left to do is <a href='{$create_hook_url}' target='blank'>create a commit hook at GitHub</a>, 
       so that any time you commit changes, they will automatically be deployed:<br><br>";
 
