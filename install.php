@@ -23,9 +23,9 @@ $create_hook_url .+ "/settings/hooks/new";
 echo "The only thing left to do is <a href='{$create_hook_url}' target='blank'>create a commit hook at GitHub</a>, 
       so that any time you commit changes, they will automatically be deployed:<br><br>";
 
-$local_hook_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]/git-commit-hook.php";
-//$local_hook_url = substr($local_hook_url, 0, strlen("install.php"));
-//$local_hook_url .= "git-commit-hook.php";
+$local_hook_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$local_hook_url = substr($local_hook_url, 0, strlen($local_hook_url) - strlen("install.php"));
+$local_hook_url .= "git-commit-hook.php";
 
 echo "Payload URL: {$local_hook_url}<br>";
 echo "Payload Type: form/post<br>";
