@@ -2,9 +2,9 @@
 
 require_once("config.php");
 
-echo "cd {${LOCAL_PATH}} && git pull {${REMOTE_REPO}} <br>";
+echo "cd {${LOCAL_PATH}} && git pull <br>";
 
-exec("cd {${LOCAL_PATH}} && git pull {${REMOTE_REPO}}")
+exec("cd {${LOCAL_PATH}} && git pull")
     or die("git pull failed!");
 
 echo "done updating!";
