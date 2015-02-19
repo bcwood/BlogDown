@@ -1,5 +1,5 @@
 <html>
 <head>
-  <title>BlogDown</title>
+  <title><?php echo BLOG_TITLE; ?></title>
 </head>
 <body>
