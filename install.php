@@ -1,6 +1,6 @@
 <?php
 
-if (file_exists("git-config.php"))
+if (file_exists("core/git-config.php"))
 {
     header("Location: index.php");
     exit();
@@ -8,7 +8,7 @@ if (file_exists("git-config.php"))
 
 $local_path = getcwd();
 
-$config = fopen("{$local_path}/git-config.php", "w") 
+$config = fopen("{$local_path}/core/git-config.php", "w") 
     or die("Unable to open git-config.php for writing");
 
 fwrite($config, "<?php\n");
@@ -25,7 +25,7 @@ $remote_repo = exec("git config --get remote.origin.url");
 $create_hook_url = substr($remote_repo, 0, strlen($remote_repo) - 4);
 $create_hook_url .= "/settings/hooks/new";
 
-echo "The only thing left to do is <a href='{$create_hook_url}' target='blank'>create a commit hook at GitHub</a>, 
+echo "The only thing left to do is <a href='{$create_hook_url}' target='blank'>create a commit hook at GitHub</a>,
       so that any time you commit changes, they will automatically be deployed:<br><br>";
 
 $current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";

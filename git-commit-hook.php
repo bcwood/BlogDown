@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST" || strpos($_SERVER["HTTP_USER_AGENT"], 
     die("Bad request");
 }
 
-require_once("git-config.php");
+require_once("core/git-config.php");
 
 // verify X-Hub-Signature
 $headers = getallheaders();
@@ -18,14 +18,14 @@ if (empty($headers['X-Hub-Signature']))
 }
 
 $signature = $headers['X-Hub-Signature'];
- 
+
 // split signature into algorithm and hash
 list($algorithm, $hash) = explode('=', $signature, 2);
- 
+
 // calculate hash based on payload and the secret
 $payload = file_get_contents('php://input');
 $payloadHash = hash_hmac($algorithm, $payload, COMMIT_HOOK_SECRET);
- 
+
 // compare hashes
 if ($hash !== $payloadHash)
 {
