@@ -9,7 +9,9 @@ if (!file_exists("core/git-config.php"))
 require_once("core/config.php");
 require_once("core/Parsedown.php");
 
-include("themes/{${THEME}}/header.php");
+$theme_path = "themes/" . THEME;
+
+include("$theme_path/header.php");
 
 if (isset($_GET["post"]))
 {
@@ -24,9 +26,9 @@ else if (isset($_GET["page"]))
 else
 {
     // TODO: generate home page
-    include("themes/{${THEME}}/index.php");
+    include("$theme_path/index.php");
 }
 
-include("themes/{${THEME}}/footer.php");
+include("$theme_path/footer.php");
 
 ?>
