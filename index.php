@@ -15,7 +15,7 @@ if (isset($_GET["post"]))
 {
     $date = $_GET["y"] . "-" . $_GET["m"] . "-" . $_GET["d"];
     $path = "content/posts/$date-" . $_GET["post"] . ".md";
-    $post = parseMarkdownFile($path);
+    global $post = parseMarkdownFile($path);
     $post->date = new DateTime($date);
 
     if ($post->date > new DateTime())
@@ -29,7 +29,7 @@ if (isset($_GET["post"]))
 else if (isset($_GET["page"]))
 {
     $path = "content/pages/" . $_GET["page"] . ".md";
-    $post = parseMarkdownFile($path);
+    global $post = parseMarkdownFile($path);
 
     if (strtolower($post->published == "false"))
         die("Page has not been published yet.");
