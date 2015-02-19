@@ -6,4 +6,4 @@ Here is some information _about this site_.
 - Two
 - Three
 
-*Here's a bit more text.*
+**Here's a bit more text.**

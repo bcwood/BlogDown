@@ -13,13 +13,6 @@
 #
 #
 
-function parseMarkdownFile($path)
-{
-    $markdown = file_get_contents($path);
-    $parsedown = new Parsedown();
-    return $parsedown->text($markdown);
-}
-
 class Parsedown
 {
     # ~

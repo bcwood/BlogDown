@@ -31,4 +31,17 @@ else
 
 include("$theme_path/footer.php");
 
+function parseMarkdownFile($path)
+{
+    if (!file_exists($path))
+    {
+        http_response_code(404);
+        $path = "content/pages/404.md";
+    }
+
+    $markdown = file_get_contents($path);
+    $parsedown = new Parsedown();
+    return $parsedown->text($markdown);
+}
+
 ?>
