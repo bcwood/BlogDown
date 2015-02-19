@@ -12,9 +12,7 @@ function parseMarkdownFile($path)
 
     // parse yaml header
     $file = file_get_contents($path);
-    $lines = explode('\r\n', $file);
-    $i;
-
+    $lines = explode("\r\n", $file);    
     for ($i = 1; $i < count($lines); $i++)
     {
         $line = $lines[$i];
@@ -24,11 +22,12 @@ function parseMarkdownFile($path)
 
         $parts = explode(': ', $line, 2);
 
-        $post[trim($parts[0])] = trim($parts[1]);
+        $varName = trim($parts[0]);
+        $post->$varName = trim($parts[1]);
     }
 
     // extract the remainder of the markdown document (with yaml header removed)
-    $markdown = implode('\r\n', array_splice($lines, $i + 1));
+    $markdown = implode("\r\n", array_splice($lines, $i + 1));
 
     // parse markdown
     $parsedown = new Parsedown();
