@@ -1,13 +1,14 @@
 <?php
 
-if (!file_exists("core/git-config.php"))
+if (!file_exists("includes/git-config.php"))
 {
     header("Location: install.php");
     exit();
 }
 
-require_once("core/config.php");
-require_once("core/parser.php");
+require_once("includes/config.php");
+require_once("includes/core.php");
+require_once("includes/parser.php");
 
 $theme_path = "themes/" . THEME;
 

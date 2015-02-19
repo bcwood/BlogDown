@@ -1,6 +1,6 @@
 <?php
 
-if (file_exists("core/git-config.php"))
+if (file_exists("includes/git-config.php"))
 {
     header("Location: index.php");
     exit();
@@ -8,7 +8,7 @@ if (file_exists("core/git-config.php"))
 
 $local_path = getcwd();
 
-$config = fopen("{$local_path}/core/git-config.php", "w") 
+$config = fopen("{$local_path}/includes/git-config.php", "w") 
     or die("Unable to open git-config.php for writing");
 
 fwrite($config, "<?php\n");
