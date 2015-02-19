@@ -1,7 +1,10 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] != "POST" || strpos($_SERVER["HTTP_USER_AGENT"], "GitHub-Hookshot/") === FALSE)
+{
+    http_response_code(400);
     die("Bad request");
+}
 
 require_once("git-config.php");
 
@@ -9,7 +12,10 @@ require_once("git-config.php");
 $headers = getallheaders();
 
 if (empty($headers['X-Hub-Signature']))
+{
+    http_response_code(401);
     die("No signature");
+}
 
 $signature = $headers['X-Hub-Signature'];
  
@@ -22,7 +28,10 @@ $payloadHash = hash_hmac($algorithm, $payload, COMMIT_HOOK_SECRET);
  
 // compare hashes
 if ($hash !== $payloadHash)
+{
+    http_response_code(401);
     die("Bad signature");
+}
 
 $local_path = getcwd();
 
