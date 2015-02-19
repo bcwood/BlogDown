@@ -26,8 +26,6 @@ if ($hash !== $payloadHash)
 
 $local_path = getcwd();
 
-//echo "cd {$local_path} && git pull <br>";
-
 exec("cd {$local_path} && git pull")
     or die("git pull failed!");
 
