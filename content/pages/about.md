@@ -1,4 +1,6 @@
-# About
+---
+title: About
+---
 
 Here is some information _about this site_.
 
