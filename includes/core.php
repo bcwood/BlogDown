@@ -13,20 +13,12 @@ function blogdown_init()
         $path = "content/posts/$date-" . $_GET["post"] . ".md";
         $post = new Post($path);
 
-        if ($post->date > new DateTime())
-            die("Future post is not yet visible.");
-        if (!$post->published)
-            die("Post has not been published yet.");
-
         render($post);
     }
     else if (isset($_GET["page"]))
     {
         $path = "content/pages/" . $_GET["page"] . ".md";
         $post = new Post($path);
-
-        if (!$post->published)
-            die("Page has not been published yet.");
 
         render($post);
     }
@@ -72,6 +64,11 @@ function render($post)
     }
     else
     {
+        if ($post->date > new DateTime())
+            die("Future post is not yet visible.");
+        if (!$post->published)
+            die("Post has not been published yet.");
+        
         $type = $post->type;   
     }
     
