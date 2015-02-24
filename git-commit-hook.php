@@ -35,7 +35,7 @@ if ($hash !== $payloadHash)
 
 $local_path = getcwd();
 
-exec("cd {$local_path} && git pull")
+exec("cd {$local_path} && git pull && git clean -f")
     or die("git pull failed!");
 
 echo "Update completed successfully!";
