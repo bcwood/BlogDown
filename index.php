@@ -1,6 +1,6 @@
 <?php
 
-if (!file_exists("includes/git-config.php"))
+if (!file_exists("includes/config.php"))
 {
     header("Location: install.php");
     exit();

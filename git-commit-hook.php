@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST" || strpos($_SERVER["HTTP_USER_AGENT"], 
     die("Bad request");
 }
 
-require_once("includes/git-config.php");
+require_once("includes/config.php");
 
 // verify X-Hub-Signature
 $headers = getallheaders();
