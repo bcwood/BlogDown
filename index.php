@@ -50,7 +50,13 @@ else
     foreach ($files as $file) 
     {
         //echo "$file <br>";
-        $posts[] = parseMarkdownFile($file);        
+        $post = parseMarkdownFile($file);
+        
+        // filter out future and unpublished posts
+        if ($post->date > new DateTime() || (property_exists($post, "published") && strtolower($post->published == "false")))
+            continue;
+        
+        $posts[] = $post;
         
         $count++;
         if ($count > $HOME_PAGE_ENTRIES)
