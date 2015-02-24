@@ -17,7 +17,7 @@ if (isset($_GET["post"]))
     $date = $_GET["y"] . "-" . $_GET["m"] . "-" . $_GET["d"];
     $path = "content/posts/$date-" . $_GET["post"] . ".md";
     $post = parseMarkdownFile($path);
-    $post->date = new DateTime($date);
+    //$post->date = new DateTime($date);
 
     if ($post->date > new DateTime())
         die("Future post is not yet visible.");
@@ -40,7 +40,23 @@ else if (isset($_GET["page"]))
 }
 else
 {
-    // TODO: generate home page
+    $files = glob("content/posts/*.md");
+    rsort($files);
+    
+    $posts = array();
+    $HOME_PAGE_ENTRIES = 10;
+    $count = 1;
+    
+    foreach ($files as $file) 
+    {
+        //echo "$file <br>";
+        $posts[] = parseMarkdownFile($file);        
+        
+        $count++;
+        if ($count > $HOME_PAGE_ENTRIES)
+            break;
+    }
+
     include("$theme_path/header.php");
     include("$theme_path/index.php");
 }

@@ -32,6 +32,22 @@ function parseMarkdownFile($path)
     // parse markdown
     $parsedown = new Parsedown();
     $post->body = $parsedown->text($markdown);
+    
+    // parse date & permalink from filename
+    $filename = basename($path);
+    if (preg_match("/^([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})/", $filename, $matches) === 1)
+    {
+        $post->type = "post";
+        $post->date = new DateTime($matches[0]);
+        $slug = substr($filename, strlen($matches[0]) + 1, -3);
+        $post->permalink = BLOG_URL . "/" . $post->date->format("Y/m/d") . "/$slug";
+    }
+    else
+    {
+        $post->type = "page";
+        $slug = substr($filename, 0, -3);
+        $post->permalink = BLOG_URL . "/$slug";
+    }
 
     return $post;
 }

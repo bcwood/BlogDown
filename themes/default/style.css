@@ -1,5 +1,14 @@
+/* basic css reset */
 * { margin: 0; padding: 0; }
 
-body { font-family: Arial, sans-serif; }
+body { font-family: Georgia, "Times New Roman", serif; }
 
 #header, #content, #footer { margin: 0 auto; width: 800px; }
+
+#header, #footer { margin: 30px auto; }
+
+.entry-list { list-style-type: none; margin-left: 20px; }
+.entry-list li { line-height: 1.5em; }
+.entry-list .entry-meta { color: #777; float: left; font-family: monospace; margin-right: 10px; text-align: right; width: 100px; }
+.entry-list h2 { font-size: 0.9em; font-weight: normal; }
+
