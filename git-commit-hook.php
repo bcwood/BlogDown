@@ -40,4 +40,7 @@ exec("cd {$local_path} && git pull && git clean -f")
 
 echo "Update completed successfully!";
 
+// TODO: clear cache after update
+// TODO: clear only updated files?
+
 ?>
