@@ -1,7 +1,7 @@
 <?php
 require_once("includes/config.php");
 
-function blogdown_init()
+function hyde_init()
 {
     require_once("includes/classes/Post.php");
     

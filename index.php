@@ -8,6 +8,6 @@ if (!file_exists("includes/config.php"))
 
 require_once("includes/core.php");
 
-blogdown_init();
+hyde_init();
 
 ?>
