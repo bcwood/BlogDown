@@ -19,6 +19,7 @@ fwrite($config, "define('BLOG_TITLE', 'BlogDown Sample Site');\n");
 fwrite($config, "define('THEME', 'default');\n");
 
 fwrite($config, "\n// DON'T TOUCH THESE\n");
+fwrite($config, "define('VERSION', '0.1');\n");
 
 $current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $root_url = substr($current_url, 0, strlen($current_url) - strlen("install.php") - 1);
