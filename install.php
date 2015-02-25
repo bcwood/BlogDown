@@ -15,7 +15,7 @@ fwrite($config, "<?php\n");
 
 fwrite($config, "// CUSTOMIZE THESE\n");
 
-fwrite($config, "define('BLOG_TITLE', 'BlogDown Sample Site');\n");
+fwrite($config, "define('BLOG_TITLE', 'Hyde Sample Site');\n");
 fwrite($config, "define('THEME', 'default');\n");
 
 fwrite($config, "\n// DON'T TOUCH THESE\n");
