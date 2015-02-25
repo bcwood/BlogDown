@@ -51,19 +51,22 @@ function hyde_init()
     }
 }
 
-function render($post)
+function render($data)
 {
     $theme_path = "themes/" . THEME;
+    global $post;
     
     // this feels hacky
     // TODO: always pass an array of posts, and implement the_post() similar to wordpress?
-    if (is_array($post))
+    if (is_array($data))
     {
-        $posts = $post;
+        $posts = $data;
         $type = "index";
     }
     else
     {
+        $post = $data;
+        
         // return 404 for unpublished posts
         if ((property_exists($post, "date") && $post->date > new DateTime()) || !$post->published)
             $post = new Post(Post::PATH_404);
