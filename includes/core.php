@@ -76,6 +76,14 @@ function render($post)
     include("$theme_path/footer.php");   
 }
 
+function replace_constants($text)
+{
+    $text = str_replace("{{ BLOG_URL }}", BLOG_URL, $text);
+    $text = str_replace("{{ IMAGE_DIR }}", BLOG_URL . "/content/images", $text);
+    
+    return $text;
+}
+
 function the_title()
 {
     $title = BLOG_TITLE;

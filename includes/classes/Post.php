@@ -40,6 +40,9 @@ class Post
         // extract the remainder of the markdown document (with yaml header removed)
         $markdown = implode("\r\n", array_splice($lines, $i + 1));
 
+        // replace constants
+        $markdown = replace_constants($markdown);
+        
         // parse markdown
         $parsedown = new Parsedown();
         $this->body = $parsedown->text($markdown);
