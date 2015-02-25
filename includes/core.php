@@ -64,12 +64,11 @@ function render($post)
     }
     else
     {
-        if ($post->date > new DateTime())
-            die("Future post is not yet visible.");
-        if (!$post->published)
-            die("Post has not been published yet.");
+        // return 404 for unpublished posts
+        if ((property_exists($post, "date") && $post->date > new DateTime()) || !$post->published)
+            $post = new Post(Post::PATH_404);
         
-        $type = $post->type;   
+        $type = $post->type;
     }
     
     include("$theme_path/header.php");

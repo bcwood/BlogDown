@@ -4,12 +4,14 @@ require_once("Parsedown.php");
 
 class Post
 {
+    const PATH_404 = "content/pages/404.md";
+    
     function __construct($path)
     {
         if (!file_exists($path))
         {
             http_response_code(404);
-            $path = "content/pages/404.md";
+            $path = self::PATH_404;
         }
         
         // parse yaml header
@@ -55,8 +57,6 @@ class Post
             $slug = substr($filename, 0, -3);
             $this->permalink = BLOG_URL . "/$slug";
         }
-
-        return $this;
     }
 }
 
