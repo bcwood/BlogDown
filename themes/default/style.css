@@ -12,3 +12,4 @@ body { font-family: Georgia, "Times New Roman", serif; }
 .entry-list .entry-meta { color: #777; float: left; font-family: monospace; margin-right: 10px; text-align: right; width: 100px; }
 .entry-list h2 { font-size: 0.9em; font-weight: normal; }
 
+.entry-body p { margin: 10px 0; }
