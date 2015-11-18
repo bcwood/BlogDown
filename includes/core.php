@@ -22,7 +22,14 @@ function hyde_init()
 
         render($post);
     }
-    else
+    else if (HOME_STYLE == "static") // static home page
+    {
+        $path = "content/pages/home.md";
+        $post = new Post($path);
+
+        render($post);
+    }
+    else // blog archive on home page
     {
         $files = glob("content/posts/*.md");
         rsort($files);

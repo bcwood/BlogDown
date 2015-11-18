@@ -17,6 +17,7 @@ fwrite($config, "// CUSTOMIZE THESE\n");
 
 fwrite($config, "define('BLOG_TITLE', 'Hyde Sample Site');\n");
 fwrite($config, "define('THEME', 'default');\n");
+fwrite($config, "define('HOME_STYLE', 'static'); // blog, static\n");
 
 fwrite($config, "\n// DON'T TOUCH THESE\n");
 fwrite($config, "define('VERSION', '0.1');\n");
