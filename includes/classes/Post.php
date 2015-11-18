@@ -29,7 +29,7 @@ class Post
             $parts = explode(': ', $line, 2);
 
             $varName = trim($parts[0]);
-            $this->$varName = trim($parts[1]);
+            $this->{$varName} = trim($parts[1]);
         }
         
         if (property_exists($this, "published") && strtolower($this->published == "false"))
